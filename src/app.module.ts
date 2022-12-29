@@ -5,9 +5,13 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { CalculatorModule } from './calculator/calculator.module';
+import { AuthModule } from './auth/auth.module';
+import { JwtModule } from '@nestjs/jwt';
 
+export const jwtSecret = 'hard!to-guess_secret';
 @Module({
   imports: [
+    JwtModule.register({ secret: jwtSecret }),
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
@@ -20,7 +24,8 @@ import { CalculatorModule } from './calculator/calculator.module';
       logging: true,
     }),
     UsersModule,
-    CalculatorModule
+    CalculatorModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],

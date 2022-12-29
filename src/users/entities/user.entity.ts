@@ -27,6 +27,16 @@ export class User extends BaseEntity {
     nullable: true,
   })
   phone: string;
+
+  @Column({
+    nullable: true,
+  })
+  email: string;
+
+  @Column({
+    nullable: true,
+  })
+  password: string;
 }
 
 setTimeout(async () => {
