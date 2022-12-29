@@ -10,25 +10,8 @@ export class UsersService {
     return 'This action adds a new user';
   }
 
-  async findAll() {
-    // let promise = new Promise((resolve , reject) => {
-    //   fetch("https://api.twitter.com")
-    //     .then((res) => {
-    //       // successfully got data
-    //       resolve(res);
-    //     })
-    //     .catch((err) => {
-    //       // an error occured
-    //       reject(err);
-    //     });          
-    // });
-    let twitter = await fetch("https://api.twitter.com");
-    let facebook = await fetch("https://api.facebook.com");
-    return await Promise.all([
-      fetch("https://api.twitter.com").catch(() => []),
-      fetch("https://api.facebook.com").catch(() => []),
-    ])
-    return { response: twitter, response2: facebook };
+  findAll() {
+    return `This action returns all users`;
   }
 
   findOne(id: number): Promise<User> {
